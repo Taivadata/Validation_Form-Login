@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Vadata</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logoVadata.png">
+    <script src="mycode.js"></script>
+</head>
+
+<body>
+    <div class="main">
+
+        <form action="" method="POST" class="form" id="form-2">
+            <h3 class="heading">LOGIN</h3>
+            <p class="desc">Login and share with Vadata</p>
+
+            <div class="spacer"></div>
+
+            <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input id="email" name="email" type="text" placeholder="VD: dutaen1011@gmail.com" class="form-control">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                <input id="password" name="password" type="password" placeholder="Password" class="form-control">
+                <span class="form-message"></span>
+            </div>
+
+            <a href="#">Forgot password?</a>
+
+            <button class="form-submit">Login</button>
+        </form>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mong muốn của chúng ta
+            Validator({
+                form: '#form-2',
+                formGroupSelector: '.form-group',
+                errorSelector: '.form-message',
+                rules: [
+                    Validator.isEmail('#email'),
+                    Validator.minLength('#password', 6),
+                ],
+                onSubmit: function (data) {
+                    // Call API
+                    console.log(data);
+                }
+            });
+        });
+
+    </script>
+</body>
+
+</html>
